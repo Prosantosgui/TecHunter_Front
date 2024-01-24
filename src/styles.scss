@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  display: flex;
+  min-height: 100%;
+  max-width: 100%;
+  //
+  background-color: #dcf2f1;
+  background-repeat: no-repeat;
+}
+app-root{
+  width: 100vw;
+}
+app-landing-page{
+  height: 100vh;
+}

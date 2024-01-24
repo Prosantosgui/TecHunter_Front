@@ -70,7 +70,8 @@
               "buildTarget": "techunter-front:build:production"
             },
             "development": {
-              "buildTarget": "techunter-front:build:development"
+              "buildTarget": "techunter-front:build:development",
+              "port": 3000
             }
           },
           "defaultConfiguration": "development"
