@@ -12,4 +12,8 @@ export class LandingPageComponent {
   public logoImgPath = "../../assets/img/logo3_nobg.png"
   public logoImgAlt = "Imagem logotipo escrito TECHUNTER"
   public mainImgPath = "../../assets/img/hand-shake.jpg"
+  public menuButtonPath = "../../assets/icon/hamburger-menu.svg"
+
+  public isDesktop = false;
+
 }

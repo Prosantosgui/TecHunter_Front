@@ -1,16 +1,12 @@
 <header class="container">
   <nav class="navbar-container">
     <section class="nav_logo">
-      <img [src]="logoImgPath" [alt]="logoImgAlt"/>
-    </section>
-    <section class="nav_links">
-      <p>Início</p>
-      <p>Contato</p>
-      <p>Sobre nós</p>
+      <img width="100%" #logo [src]="logoImgPath" [alt]="logoImgAlt"/>
     </section>
     <section class="nav_buttons">
-      <button>ENTRAR</button>
-      <button>CADASTRAR</button>
+      <button id="menu_button">
+        <img [src]="menuButtonPath" alt="Menu button">
+      </button>
     </section>
   </nav>
 </header>
@@ -26,7 +22,7 @@
     <button>COMEÇAR</button>
   </section>
   <section class="img_side">
-    <img [src]="mainImgPath"/>
+    <img [src]="mainImgPath" width="2000" height="2000"/>
   </section>
 </main>
 
