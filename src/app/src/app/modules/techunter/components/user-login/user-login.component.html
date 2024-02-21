@@ -1,0 +1,39 @@
+<div class="container">
+  <img src="assets/img/logo3_nobg.png" alt="">
+  <div class="form_container">
+    <h1>Entre com a sua conta</h1>
+    <form #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div class="form-sections">
+        <label>
+          Email
+        </label>
+        <input
+        type="text"
+        placeholder="Digite seu email..."
+        value=""
+        name="inputEmail"
+        #email="ngModel"
+        [ngModel]="email.value"
+        required
+        />
+      </div>
+      <div class="form-sections">
+        <label>
+          Senha
+        </label>
+        <input
+        type="text"
+        placeholder="Digite sua senha..."
+        value=""
+        name="inputSenha"
+        #senha="ngModel"
+        [ngModel]="senha.value"
+        required
+        />
+      </div>
+      <div class="form-sections">
+        <button type="submit">Continuar</button>
+      </div>
+    </form>
+  </div>
+</div>
