@@ -25,14 +25,6 @@ body{
   background-color: #dcf2f1;
   background-repeat: no-repeat;
 }
-app-register{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  margin: 0;
-}
-
 
 h1{
   font-size: 22px;
@@ -40,11 +32,6 @@ h1{
 
 h2,h3{
   font-size: 14px;
-}
-
-h1,h2,h3,a{
-  color: var(--white);
-  text-decoration: none;
 }
 
 a {text-decoration: none;}
@@ -66,4 +53,12 @@ app-root{
 app-landing-page{
   height: 100vh;
   width: 100%;
+}
+
+app-register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
 }
