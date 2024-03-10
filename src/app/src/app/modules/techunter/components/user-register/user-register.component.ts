@@ -1,7 +1,8 @@
+import { UserRegisterI } from './../../interface/UserI';
 import { JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { UserI } from '../../interface/UserI';
+
 
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
@@ -19,7 +20,7 @@ export class UserRegisterComponent {
   #apiService = inject(AuthService);
 
   public submitForm(form: NgForm) {
-    const userModel : UserI = {
+    const userModel : UserRegisterI = {
       "login": form.value.inputEmail,
       "password": form.value.inputSenha,
       "role": form.value.radioPerfil
@@ -27,7 +28,7 @@ export class UserRegisterComponent {
 
     if(form.valid && form.value.inputSenha == form.value.inputConfirmaSenha){
 
-      this.#apiService.httpPostUser(userModel).subscribe({
+      this.#apiService.httpRegisterUser(userModel).subscribe({
         next: () => {
           alert("Conta criada com sucesso!");
           this.#router.navigateByUrl('/login');
