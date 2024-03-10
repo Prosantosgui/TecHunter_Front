@@ -1,0 +1,54 @@
+<header>
+  <nav class="navbar-container">
+    <section class="nav_logo">
+      <img width="100%" #logo [src]="logoImgPath" [alt]="logoImgAlt"/>
+    </section>
+    <section class="nav_links">
+      <a>VAGAS</a>
+    </section>
+    <section class="nav_buttons">
+      <button>
+        <img [src]="menuButtonProfilePath" alt="Menu button">
+      </button>
+      <button>
+        <img [src]="menuButtonExitPath" alt="Menu button">
+      </button>
+    </section>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <section>
+      <div id="search_bar">
+        <input type="text" placeholder="Cargo ou palavra-chave">
+        <button>Pesquisar</button>
+      </div>
+      <div id="positions">
+        @for (pos of positions_list; track pos) {
+        <div class="position">
+          <p id="name_position">{{pos.type}}</p>
+          <div id="location_salary">
+            <p>{{pos.state}}</p>
+            <p>{{pos.salaryRanges[0]}}-{{pos.salaryRanges[1]}}</p>
+          </div>
+          <div id="country">
+            <p>{{pos.country}}</p>
+          </div>
+          <div id="stack">
+            @for (stack of pos.stacks; track stack) {
+              <p>{{stack}}</p>
+            }
+          </div>
+          <p id="time">
+            {{pos.date | date}}
+          </p>
+        </div>
+        }
+      </div>
+    </section>
+    <aside>
+      Filtro
+    </aside>
+  </div>
+</main>
