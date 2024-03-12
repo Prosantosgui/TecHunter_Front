@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { PositionI } from '../../interface/PositionI';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { PositionDialogComponent } from '../../components/dialogs/position-dialog/position-dialog.component';
 
 @Component({
   selector: 'app-home-page',
@@ -11,19 +13,19 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 })
 export class HomePageComponent {
 
+  #dialog = inject(MatDialog);
+
   public logoImgPath = "../../assets/img/logo3_nobg.png"
   public logoImgAlt = "Imagem logotipo escrito TECHUNTER"
   public menuButtonProfilePath = "../../assets/icon/profile-round.svg"
   public menuButtonExitPath = "../../assets/icon/exit.svg"
-
-
 
   public positions_list: Array<PositionI> = [
     {
       "id": 1,
       "type": "Desenvolvedor Java",
       "workDuration": "Tempo integral",
-      "description": "Descrição da position",
+      "description": "Lorem ipsum dolor sit amet. Id totam accusamus sed internos ipsum qui minima Lorem ipsum dolor sit amet. Id totam accusamus sed internos ipsum qui minima  Lorem ipsum dolor sit amet. Id totam accusamus sed internos ipsum qui minima  Lorem ipsum dolor sit amet. Id totam accusamus sed internos ipsum qui minima   ",
       "stacks": [
         "Java",
         "Spring Boot",
@@ -31,7 +33,13 @@ export class HomePageComponent {
         "Docker",
         "PostgreSQL",
         "Postman",
-        "Microsserviços"
+        "Docker",
+        "Microsserviços",
+        "Microsserviços",
+        "Microsserviços",
+        "Microsserviços",
+        "Postman"
+
       ],
       "employmentType": "CLT",
       "benefits": [
@@ -156,7 +164,9 @@ export class HomePageComponent {
       "description": "Descrição da position",
       "stacks": [
         "Java",
-        "Spring Boot"
+        "Spring Boot",
+        "AWS",
+        "Azure"
       ],
       "employmentType": "PJ",
       "benefits": [
@@ -294,4 +304,13 @@ export class HomePageComponent {
       "positionStatus": "CLOSED"
     }
   ];
+
+  openDialog(position: PositionI): void{
+    const dialogRef = this.#dialog.open(PositionDialogComponent, {
+      data: position,
+      minWidth: '650px',
+      maxWidth: '900px',
+    });
+
+  }
 }

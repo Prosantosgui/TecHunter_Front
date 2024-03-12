@@ -1,0 +1,26 @@
+mat-dialog-content{
+
+  p.attributes{
+    font-size: 18px;
+    font-weight: 700;
+  }
+  div.position_section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  div.position_section_description{
+    text-align: justify;
+    text-justify: inter-word;
+
+  }
+  div.position_section_lis{
+    display: flex;
+    align-items: start;
+
+  }
+
+  p#position_date{
+    font-weight: 600;
+  }
+}

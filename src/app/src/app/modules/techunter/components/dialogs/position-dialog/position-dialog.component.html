@@ -1,0 +1,92 @@
+<h2 mat-dialog-title> Cargo: {{data.type}}</h2>
+<mat-dialog-content>
+  <div class="position_section">
+    <p class="attributes">Estado: </p>
+    <p>&nbsp;{{data.state}}</p>
+  </div>
+  <div class="position_section">
+    <p class="attributes">País: </p>
+    <p>&nbsp;{{data.country}}</p>
+  </div>
+  <div class="position_section">
+    <p class="attributes">Range Salarial: </p>
+    <p>&nbsp;{{data.salaryRanges[0]}} - {{data.salaryRanges[1]}}</p>
+  </div>
+  <div class="position_section">
+    <p class="attributes">Contratação: </p>
+    <p>&nbsp;{{data.employmentType}}</p>
+  </div>
+  <div class="position_section">
+    <p class="attributes">Carga horária: </p>
+    <p>&nbsp;{{data.workDuration}}</p>
+  </div>
+  <div class="position_section_description">
+    <p class="attributes">Descrição da vaga:</p>
+    <p>{{data.description}}</p>
+  </div>
+  <div class="position_section_list">
+    <p class="attributes">Stacks: &nbsp;</p>
+    <p class="stacks"> @for (stack of data.stacks; track stack) {
+      {{stack}};
+    }</p>
+  </div>
+  <div class="position_section_list">
+    <p class="attributes">Benefícios: &nbsp;</p>
+    <p>
+       @for (benefit of data.benefits; track benefit) {
+        {{benefit}};
+      }
+    </p>
+  </div>
+  <div class="position_section">
+    <p class="attributes">Educação requerida: </p>
+    <p>&nbsp;{{data.requiredEducation}}</p>
+  </div>
+  @if (data.positionStatus === "OPEN") {
+    <div class="position_section">
+      <p class="attributes">Status da vaga: </p>
+      <p>&nbsp; ABERTA</p>
+    </div>
+  }@else{
+    <p>Status da vaga: FECHADA</p>
+  }
+  <p id="position_date">{{data.date | date}}</p>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="submit_application()">Candidatar</button>
+  <button mat-stroked-button (click)="onCloseClick()">Fechar</button>
+
+</mat-dialog-actions>
+<!--
+"id": 1,
+"type": "Desenvolvedor Java",
+"workDuration": "Tempo integral",
+"description": "Descrição da position",
+"stacks": [
+  "Java",
+  "Spring Boot",
+  "Hibernate",
+  "Docker",
+  "PostgreSQL",
+  "Postman",
+  "Microsserviços",
+  "Postman",
+  "Microsserviços",
+  "Postman",
+  "Microsserviços"
+],
+"employmentType": "CLT",
+"benefits": [
+  "Plano de saúde",
+  "Vale-refeição"
+],
+"salaryRanges": [
+  "5000",
+  "6000"
+],
+"requiredEducation": "Superior completo",
+"country": "Brasil",
+"state": "São Paulo",
+"date": "2024-03-09T16:30:17.384532Z",
+"positionStatus": "OPEN" -->

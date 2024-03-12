@@ -26,7 +26,7 @@
       </div>
       <div id="positions">
         @for (pos of positions_list; track pos) {
-        <div class="position">
+        <div class="position" (click)="openDialog(pos)">
           <p id="name_position">{{pos.type}}</p>
           <div id="location_salary">
             <p>{{pos.state}}</p>
