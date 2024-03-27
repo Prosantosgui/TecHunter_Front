@@ -54,7 +54,21 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-raised-button color="primary" (click)="submit_application()">Candidatar</button>
+  @if (isCandidate() && noPreviousApplication()) {
+    <button mat-raised-button color="primary" (click)="submit_application()">Candidatar-se</button>
+  }@else if (!isCandidate()) {
+    <div matTooltip="É necessário perfil de candidato!">
+      <button mat-raised-button color="primary"
+      (click)="submit_application()" disabled>Candidatar-se</button>
+
+    </div>
+  }@else {
+    <div matTooltip="Você já se candidatou a esta vaga!">
+      <button mat-raised-button color="primary"
+      matTooltip="Você já se candidatou a esta vaga!"
+      (click)="submit_application()" disabled>Candidatar-se</button>
+    </div>
+  }
   <button mat-stroked-button (click)="onCloseClick()">Fechar</button>
 
 </mat-dialog-actions>

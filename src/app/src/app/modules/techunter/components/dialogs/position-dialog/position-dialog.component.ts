@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, signal, OnInit } from '@angular/core';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PositionI } from '../../../interface/PositionI';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-position-dialog',
@@ -27,18 +28,28 @@ import { PositionI } from '../../../interface/PositionI';
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    MatTooltip,
     DatePipe
   ]
     ,
   templateUrl: './position-dialog.component.html',
   styleUrl: './position-dialog.component.scss'
 })
-export class PositionDialogComponent {
+export class PositionDialogComponent{
+
+  public isPositionOwner = signal(false)
+  public isCandidate = signal(false)
+  public noPreviousApplication = signal(false)
 
   constructor(
     public dialogRef: MatDialogRef<PositionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: PositionI,
   ) {}
+
+  ngOnInit(): void {
+    var user = localStorage.getItem("UserToken");
+    console.log(user)
+  }
 
   onCloseClick(): void{
     this.dialogRef.close();

@@ -5,7 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 
 import { Router } from '@angular/router';
-import { AuthService } from 'app/services/auth.service';
+import { AuthService } from 'app/services/auth/auth.service';
 
 @Component({
   selector: 'app-user-register',
@@ -33,7 +33,10 @@ export class UserRegisterComponent {
           alert("Conta criada com sucesso!");
           this.#router.navigateByUrl('/login');
         },
-        error: () => alert("Não foi possível criar a conta!")
+        error: (error) => {
+          alert("Não foi possível criar a conta!");
+          console.log(error);
+        }
       })
     }
   }

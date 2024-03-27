@@ -25,25 +25,31 @@
         <button>Pesquisar</button>
       </div>
       <div id="positions">
-        @for (pos of positions_list; track pos) {
-        <div class="position" (click)="openDialog(pos)">
-          <p id="name_position">{{pos.type}}</p>
-          <div id="location_salary">
-            <p>{{pos.state}}</p>
-            <p>{{pos.salaryRanges[0]}}-{{pos.salaryRanges[1]}}</p>
+        @if (positions_list(); as data) {
+        @for (pos of positions_list(); track pos) {
+          <div class="position" (click)="openDialog(pos)">
+            <p id="name_position">{{pos.type}}</p>
+            <div id="location_salary">
+              <p>{{pos.state}}</p>
+              <p>{{pos.salaryRanges[0]}}-{{pos.salaryRanges[1]}}</p>
+            </div>
+            <div id="country">
+              <p>{{pos.country}}</p>
+            </div>
+            <div id="stack">
+              @for (stack of pos.stacks; track stack) {
+                <p>{{stack}}</p>
+              }
+            </div>
+            <p id="time">
+              {{pos.date | date}}
+            </p>
           </div>
-          <div id="country">
-            <p>{{pos.country}}</p>
-          </div>
-          <div id="stack">
-            @for (stack of pos.stacks; track stack) {
-              <p>{{stack}}</p>
-            }
-          </div>
-          <p id="time">
-            {{pos.date | date}}
-          </p>
-        </div>
+         }@empty {
+          <li>Sem dados carregados!</li>
+         }
+        }@else {
+          <h2>Nada a exibir!</h2>
         }
       </div>
     </section>
